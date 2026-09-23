@@ -1,0 +1,1995 @@
+@import "tailwindcss";
+
+/* Paleta global Pontual — reduz a saturação dos antigos verdes, roxos e rosas. */
+:root {
+  --pontual-creme: #F9DE97;
+  --pontual-laranja: #F59242;
+  --pontual-vinho: #9F243C;
+  --pontual-vinho-escuro: #640C1E;
+}
+
+/* Componentes que utilizavam a identidade verde/roxa recebem a nova paleta,
+   sem alterar os tons neutros ou as cores de status do sistema. */
+[class*="bg-[#166534]"],
+[class*="bg-[#6D28D9]"] {
+  background-color: var(--pontual-vinho-escuro) !important;
+}
+
+[class*="bg-[#BBF7D0]"],
+[class*="bg-[#E2F952]"] {
+  background-color: var(--pontual-creme) !important;
+}
+
+[class*="text-[#166534]"],
+[class*="text-[#6D28D9]"] {
+  color: var(--pontual-vinho-escuro) !important;
+}
+
+[class*="text-[#BBF7D0]"],
+[class*="text-[#E2F952]"] {
+  color: var(--pontual-creme) !important;
+}
+
+[class*="border-[#166534]"],
+[class*="border-[#6D28D9]"] {
+  border-color: var(--pontual-vinho) !important;
+}
+
+[class*="border-[#BBF7D0]"],
+[class*="border-[#E2F952]"] {
+  border-color: var(--pontual-creme) !important;
+}
+
+[class*="ring-[#166534]"],
+[class*="ring-[#6D28D9]"] {
+  --tw-ring-color: var(--pontual-vinho) !important;
+}
+
+[class*="hover:bg-emerald"]:hover,
+[class*="hover:bg-purple"]:hover {
+  background-color: var(--pontual-vinho) !important;
+}
+
+[class*="hover:text-emerald"]:hover,
+[class*="hover:text-purple"]:hover {
+  color: var(--pontual-creme) !important;
+}
+
+/* Ações principais em páginas com estilo Orbit/gestor. */
+button[style*="#e90045"],
+button[style*="#ff1a53"],
+button[style*="#96183c"] {
+  background: linear-gradient(90deg, var(--pontual-vinho-escuro), var(--pontual-vinho), var(--pontual-laranja)) !important;
+  color: var(--pontual-creme) !important;
+  box-shadow: 0 5px 18px rgba(100, 12, 30, 0.30) !important;
+}
+
+/* Modern Dark-Themed Slim Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 146, 66, 0.35) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 146, 66, 0.25);
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 146, 66, 0.55);
+}
+
+/* Refined modal scrollbars */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 146, 66, 0.35) rgba(255, 255, 255, 0.02);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 9999px;
+  margin: 6px 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(245, 146, 66, 0.3);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 146, 66, 0.6);
+}
+
+/* ==========================================================================
+   PONTUAL LIGHT THEME SCOPE (VISÃO DO GESTOR)
+   ========================================================================== */
+html.light .manager-scope,
+html.light .modal-scope,
+.manager-scope.light,
+.modal-scope.light {
+  color-scheme: light;
+}
+
+/* Scrollbars no modo claro */
+html.light * {
+  scrollbar-color: rgba(159, 36, 60, 0.25) transparent;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(159, 36, 60, 0.2);
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(159, 36, 60, 0.45);
+}
+
+/* Backgrounds da página e containers no modo claro */
+html.light .manager-scope,
+html.light .manager-scope [class*="bg-[#0F1117]"],
+html.light .manager-scope [class*="bg-[#101116]"],
+html.light .manager-scope [class*="bg-[#111216]"],
+html.light .manager-scope [class*="bg-[#0B0B0E]"],
+.manager-scope.light [class*="bg-[#0F1117]"],
+.manager-scope.light [class*="bg-[#101116]"],
+.manager-scope.light [class*="bg-[#111216]"],
+.manager-scope.light [class*="bg-[#0B0B0E]"] {
+  background-color: #f8fafc !important;
+}
+
+/* Cards, painéis laterais e blocos brancos no modo claro */
+html.light .manager-scope [class*="bg-[#14151C]"],
+html.light .manager-scope [class*="bg-[#15161b]"],
+html.light .manager-scope [class*="bg-[#0B0C10]"],
+html.light .manager-scope aside[class*="bg-[#0F1117]"],
+html.light .modal-scope [class*="bg-[#101116]"],
+html.light .modal-scope [class*="bg-[#111216]"],
+html.light .modal-scope [class*="bg-[#15161b]"],
+.manager-scope.light [class*="bg-[#14151C]"],
+.manager-scope.light [class*="bg-[#15161b]"],
+.manager-scope.light [class*="bg-[#0B0C10]"],
+.manager-scope.light aside[class*="bg-[#0F1117]"],
+.modal-scope.light [class*="bg-[#101116]"],
+.modal-scope.light [class*="bg-[#111216]"],
+.modal-scope.light [class*="bg-[#15161b]"] {
+  background-color: #ffffff !important;
+}
+
+/* Sub-barras, headers secundários e fundos alternados no modo claro */
+html.light .manager-scope [class*="bg-[#0e0f12]"],
+html.light .manager-scope [class*="bg-[#0c0d12]"],
+html.light .manager-scope [class*="bg-[#12131A]"],
+html.light .manager-scope [class*="bg-[#121319]"],
+html.light .manager-scope [class*="bg-[#181922]"],
+html.light .manager-scope [class*="bg-[#1A1C24]"],
+html.light .modal-scope [class*="bg-[#0e0f12]"],
+html.light .modal-scope [class*="bg-[#0d0e12]"],
+.manager-scope.light [class*="bg-[#0e0f12]"],
+.manager-scope.light [class*="bg-[#0c0d12]"],
+.manager-scope.light [class*="bg-[#12131A]"],
+.manager-scope.light [class*="bg-[#121319]"],
+.manager-scope.light [class*="bg-[#181922]"],
+.manager-scope.light [class*="bg-[#1A1C24]"],
+.modal-scope.light [class*="bg-[#0e0f12]"],
+.modal-scope.light [class*="bg-[#0d0e12]"] {
+  background-color: #f1f5f9 !important;
+}
+
+/* Bordas convertidas para slate-200 suave no modo claro */
+html.light .manager-scope [class*="border-[#222634]"],
+html.light .manager-scope [class*="border-[#282a33]"],
+html.light .manager-scope [class*="border-[#292b34]"],
+html.light .manager-scope [class*="border-white/10"],
+html.light .manager-scope [class*="border-white/5"],
+html.light .modal-scope [class*="border-[#222634]"],
+html.light .modal-scope [class*="border-[#282a33]"],
+html.light .modal-scope [class*="border-[#292b34]"],
+.manager-scope.light [class*="border-[#222634]"],
+.manager-scope.light [class*="border-[#282a33]"],
+.manager-scope.light [class*="border-[#292b34]"],
+.manager-scope.light [class*="border-white/10"],
+.manager-scope.light [class*="border-white/5"],
+.modal-scope.light [class*="border-[#222634]"],
+.modal-scope.light [class*="border-[#282a33]"],
+.modal-scope.light [class*="border-[#292b34]"] {
+  border-color: #e2e8f0 !important;
+}
+
+/* Textos principais no modo claro (preservando botões com gradientes coloridos) */
+html.light .manager-scope h1:not([style*="gradient"]),
+html.light .manager-scope h2:not([style*="gradient"]),
+html.light .manager-scope h3:not([style*="gradient"]),
+html.light .manager-scope h4:not([style*="gradient"]),
+html.light .manager-scope strong.text-white,
+html.light .modal-scope h1:not([style*="gradient"]),
+html.light .modal-scope h2:not([style*="gradient"]),
+html.light .modal-scope h3:not([style*="gradient"]),
+html.light .modal-scope h4:not([style*="gradient"]),
+.manager-scope.light h1:not([style*="gradient"]),
+.manager-scope.light h2:not([style*="gradient"]),
+.manager-scope.light h3:not([style*="gradient"]),
+.manager-scope.light h4:not([style*="gradient"]),
+.manager-scope.light strong.text-white,
+.modal-scope.light h1:not([style*="gradient"]),
+.modal-scope.light h2:not([style*="gradient"]),
+.modal-scope.light h3:not([style*="gradient"]),
+.modal-scope.light h4:not([style*="gradient"]) {
+  color: #0f172a !important;
+}
+
+/* Textos de suporte e contraste suave */
+html.light .manager-scope .text-slate-400,
+html.light .modal-scope .text-slate-400,
+.manager-scope.light .text-slate-400,
+.modal-scope.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light .manager-scope .text-slate-500,
+html.light .modal-scope .text-slate-500,
+.manager-scope.light .text-slate-500,
+.modal-scope.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+html.light .manager-scope .text-slate-300,
+html.light .manager-scope .text-slate-200,
+html.light .modal-scope .text-slate-300,
+html.light .modal-scope .text-slate-200,
+.manager-scope.light .text-slate-300,
+.manager-scope.light .text-slate-200,
+.modal-scope.light .text-slate-300,
+.modal-scope.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+/* Inputs e caixas de seleção no modo claro */
+html.light .manager-scope input[type="text"],
+html.light .manager-scope input[type="search"],
+html.light .manager-scope input[type="date"],
+html.light .manager-scope select,
+html.light .manager-scope textarea,
+.manager-scope.light input[type="text"],
+.manager-scope.light input[type="search"],
+.manager-scope.light input[type="date"],
+.manager-scope.light select,
+.manager-scope.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light .manager-scope input::placeholder,
+.manager-scope.light input::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Suavização de sombras no modo claro */
+html.light .manager-scope [style*="0 8px 24px rgba(0,0,0"],
+html.light .manager-scope [style*="0 20px 50px rgba(0,0,0"],
+.manager-scope.light [style*="0 8px 24px rgba(0,0,0"],
+.manager-scope.light [style*="0 20px 50px rgba(0,0,0"] {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Aprovações e Faltas — superfície uniforme no modo claro. */
+.manager-scope.light .approvals-page {
+  color: #640c1e;
+}
+
+.manager-scope.light .approvals-page .approvals-hero {
+  background: linear-gradient(120deg, #fffdf8 0%, #fff8e9 62%, #f9de97 100%) !important;
+  border-color: #e9c98e !important;
+  box-shadow: 0 12px 30px rgba(100, 12, 30, .10) !important;
+}
+
+.manager-scope.light .approvals-page .approval-kpi,
+.manager-scope.light .approvals-page .approval-filter-bar,
+.manager-scope.light .approvals-page .approval-table-card,
+.manager-scope.light .approvals-page .approval-modal {
+  background: #ffffff !important;
+  border-color: #ead7b7 !important;
+  box-shadow: 0 8px 24px rgba(100, 12, 30, .07) !important;
+}
+
+.manager-scope.light .approvals-page .approval-table-card thead {
+  background: #fff8e9 !important;
+  border-color: #ead7b7 !important;
+}
+
+.manager-scope.light .approvals-page .approval-table-card tbody tr {
+  color: #640c1e !important;
+  border-color: #f3e4ca !important;
+}
+
+.manager-scope.light .approvals-page .approval-table-card tbody tr:hover {
+  background: #fff9ed !important;
+}
+
+.manager-scope.light .approvals-page .text-white,
+.manager-scope.light .approvals-page .text-slate-200,
+.manager-scope.light .approvals-page .text-slate-300 {
+  color: #640c1e !important;
+}
+
+.manager-scope.light .approvals-page .text-slate-400,
+.manager-scope.light .approvals-page .text-slate-500,
+.manager-scope.light .approvals-page .text-slate-600 {
+  color: #805f55 !important;
+}
+
+.manager-scope.light .approvals-page input,
+.manager-scope.light .approvals-page select,
+.manager-scope.light .approvals-page textarea {
+  background: #fffdf8 !important;
+  color: #640c1e !important;
+  border-color: #e9c98e !important;
+  color-scheme: light !important;
+}
+
+.manager-scope.light .approvals-page input::placeholder,
+.manager-scope.light .approvals-page textarea::placeholder {
+  color: #aa8a7c !important;
+}
+
+.manager-scope.light .approvals-page [class*="bg-white/5"],
+.manager-scope.light .approvals-page [class*="bg-white/10"],
+.manager-scope.light .approvals-page [class*="bg-white/15"] {
+  background-color: #fff3d7 !important;
+}
+
+.manager-scope.light .approvals-page [class*="border-white/"] {
+  border-color: #ead7b7 !important;
+}
+
+.manager-scope.light .approvals-page .bg-\[\#0e0f12\],
+.manager-scope.light .approvals-page .bg-\[\#101115\],
+.manager-scope.light .approvals-page .bg-\[\#15161b\] {
+  background-color: #fffdf8 !important;
+}
+
+.manager-scope.light .approvals-page .approval-filter-bar > .flex:last-of-type {
+  background: #fff3d7 !important;
+  border-color: #e9c98e !important;
+}
+
+/* Aprovações e Faltas — acompanha o modo claro do Relatório de Presenças. */
+.manager-scope.light .approvals-attendance-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  padding: 0;
+  color: #17213a;
+  background: #f6f8fb;
+}
+
+.manager-scope.light .approvals-attendance-page > :not(.approvals-light-glow) {
+  margin-top: 0 !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-glow {
+  background: radial-gradient(circle, rgba(245, 146, 66, .035), transparent 72%) !important;
+  filter: blur(90px) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-hero {
+  display: flex;
+  align-items: center;
+  min-height: 0;
+  padding: 24px !important;
+  border: 1px solid #e5eaf1 !important;
+  border-radius: 24px !important;
+  background: linear-gradient(110deg, #fffefa 0%, #fff7ed 58%, #fdecec 100%) !important;
+  box-shadow: 0 8px 24px rgba(30, 50, 80, .045) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-hero-glow {
+  background: radial-gradient(circle at 70% 50%, rgba(245, 146, 66, .08), rgba(159, 36, 60, .025) 48%, transparent 76%) !important;
+  filter: blur(64px) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-hero-content {
+  width: 100%;
+  gap: 32px;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-eyebrow {
+  padding: 4px 12px;
+  color: #526b8a !important;
+  border-color: #e1e7ef !important;
+  background: rgba(255, 255, 255, .68) !important;
+  font-size: 10px;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-title {
+  color: #17213a !important;
+  font-size: 30px;
+  line-height: 1.08;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-title > span {
+  background: linear-gradient(90deg, #9f243c 0%, #be3440 48%, #f59242 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-description {
+  max-width: 760px;
+  color: #526b8a !important;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-export,
+.manager-scope.light .approvals-attendance-page .approvals-light-new-request {
+  min-height: 0;
+  padding: 10px 20px !important;
+  border: 0 !important;
+  border-radius: 9999px !important;
+  background: linear-gradient(100deg, #8f1735 0%, #b3223e 54%, #f59a3d 100%) !important;
+  color: #fff !important;
+  font-size: 12px;
+  box-shadow: 0 5px 14px rgba(143, 23, 53, .16) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-export:hover,
+.manager-scope.light .approvals-attendance-page .approvals-light-new-request:hover {
+  filter: brightness(1.04);
+  box-shadow: 0 7px 18px rgba(143, 23, 53, .20) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-secondary {
+  padding: 10px 16px !important;
+  border: 1px solid #d8e4f0 !important;
+  border-radius: 9999px !important;
+  background: #fff !important;
+  color: #42688f !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-secondary:hover {
+  background: #f8fafc !important;
+  color: #29476a !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-kpis {
+  gap: 16px;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-kpi {
+  min-height: 0;
+  padding: 20px !important;
+  border: 1px solid #e5eaf1 !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+  box-shadow: 0 4px 18px rgba(30, 50, 80, .05) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-kpi:hover {
+  border-color: #d6dfeb !important;
+  box-shadow: 0 7px 22px rgba(30, 50, 80, .075) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-kpi-label {
+  color: #526b8a !important;
+  font-size: 11px;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-kpi-value {
+  color: #17213a !important;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-kpi-sub {
+  color: #7185a1 !important;
+  font-size: 11px;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-kpi-dot {
+  box-shadow: 0 0 0 5px rgba(82, 107, 138, .07), 0 2px 9px rgba(30, 50, 80, .10) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-filter {
+  min-height: 0;
+  padding: 16px !important;
+  border: 1px solid #e4e9f0 !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+  box-shadow: 0 4px 16px rgba(30, 50, 80, .035) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-search,
+.manager-scope.light .approvals-attendance-page .approvals-light-department {
+  min-height: 36px;
+  border: 1px solid #dce4ef !important;
+  border-radius: 9999px !important;
+  color: #17213a !important;
+  color-scheme: light !important;
+  font-size: 12px;
+  box-shadow: none !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-search {
+  padding: 8px 12px 8px 36px !important;
+  background: #f8fafc !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-search::placeholder {
+  color: #8295b0 !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-search-icon {
+  color: #6683a6 !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-department {
+  padding: 8px 16px !important;
+  background: #fff !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-status-filter {
+  padding: 4px !important;
+  border: 1px solid #e4e9f0 !important;
+  border-radius: 9999px !important;
+  background: #f8fafc !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-status-button {
+  min-height: 30px;
+  border: 1px solid transparent;
+  color: #587ba2 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-status-button:hover {
+  color: #29476a !important;
+  background: #eef4fa !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-status-button[data-active="true"] {
+  border-color: #ffd1b5 !important;
+  color: #c55428 !important;
+  background: #fff0e6 !important;
+  box-shadow: 0 1px 4px rgba(197, 84, 40, .07) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-status-button > span.rounded-full {
+  color: #fff !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-table {
+  border: 1px solid #e5eaf1 !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+  box-shadow: 0 4px 18px rgba(30, 50, 80, .04) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-data thead tr {
+  color: #526b8a !important;
+  border-color: #e5eaf1 !important;
+  background: #f4f7fb !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-data th {
+  padding: 14px !important;
+  color: #526b8a !important;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-data td {
+  padding: 14px !important;
+  color: #526b8a !important;
+  border-color: #edf1f6 !important;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-row {
+  color: #526b8a !important;
+  background: #fff !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-row:hover {
+  background: #f8fafc !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-data .text-white {
+  color: #17213a !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-data .text-slate-200,
+.manager-scope.light .approvals-attendance-page .approvals-light-data .text-slate-300,
+.manager-scope.light .approvals-attendance-page .approvals-light-data .text-slate-400,
+.manager-scope.light .approvals-attendance-page .approvals-light-data .text-slate-500,
+.manager-scope.light .approvals-attendance-page .approvals-light-data .text-slate-600 {
+  color: #7185a1 !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-data td > div.inline-flex {
+  border: 1px solid #e2eaf3 !important;
+  border-radius: 9999px !important;
+  color: #4e7198 !important;
+  background: #f7fafd !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-proof {
+  color: #42688f !important;
+  border: 1px solid #dce7f2 !important;
+  border-radius: 9999px !important;
+  background: #f4f8fc !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-status-approved {
+  color: #16865a !important;
+  border-color: #bde8d2 !important;
+  background: #e5f8ef !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-status-rejected {
+  color: #a94452 !important;
+  border-color: #f0c9d0 !important;
+  background: #fff0f1 !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-status-pending {
+  color: #92701e !important;
+  border-color: #f1dfa7 !important;
+  background: #fff7e6 !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-status-badge > span {
+  box-shadow: none !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-feedback {
+  min-height: 32px;
+  border: 1px solid #dce4ef !important;
+  border-radius: 10px !important;
+  color: #17213a !important;
+  background: #fff !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-feedback::placeholder {
+  color: #8295b0 !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-approve {
+  background: #35b879 !important;
+  box-shadow: 0 3px 9px rgba(53, 184, 121, .15) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-reject {
+  color: #a94452 !important;
+  border-color: #f0c9d0 !important;
+  background: #fff6f6 !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-modal-backdrop {
+  background: rgba(23, 33, 58, .38) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-modal {
+  border: 1px solid #e5eaf1 !important;
+  border-radius: 20px !important;
+  color: #526b8a;
+  background: #fff !important;
+  box-shadow: 0 18px 48px rgba(30, 50, 80, .18) !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-modal h3 {
+  color: #17213a !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-modal label {
+  color: #526b8a !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-modal input,
+.manager-scope.light .approvals-attendance-page .approvals-light-modal select,
+.manager-scope.light .approvals-attendance-page .approvals-light-modal textarea {
+  border: 1px solid #dce4ef !important;
+  border-radius: 10px !important;
+  color: #17213a !important;
+  background: #f8fafc !important;
+  color-scheme: light !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-modal input::placeholder,
+.manager-scope.light .approvals-attendance-page .approvals-light-modal textarea::placeholder {
+  color: #8295b0 !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-modal form > div:last-child {
+  border-color: #e5eaf1 !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-modal form > div:last-child button:first-child {
+  color: #526b8a !important;
+}
+
+.manager-scope.light .approvals-attendance-page .approvals-light-modal form > div:last-child button:last-child {
+  border: 0 !important;
+  border-radius: 9999px !important;
+  background: linear-gradient(100deg, #8f1735 0%, #b3223e 54%, #f59a3d 100%) !important;
+  box-shadow: 0 5px 14px rgba(143, 23, 53, .16) !important;
+}
+
+@media (min-width: 640px) {
+  .manager-scope.light .approvals-attendance-page .approvals-light-hero {
+    padding: 32px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .manager-scope.light .approvals-attendance-page {
+    gap: 20px;
+  }
+
+  .manager-scope.light .approvals-attendance-page .approvals-light-hero {
+    min-height: 0;
+    padding: 24px !important;
+  }
+
+  .manager-scope.light .approvals-attendance-page .approvals-light-title {
+    font-size: clamp(24px, 7vw, 30px);
+  }
+
+  .manager-scope.light .approvals-attendance-page .approvals-light-description {
+    font-size: 13px;
+  }
+
+  .manager-scope.light .approvals-attendance-page .approvals-light-export,
+  .manager-scope.light .approvals-attendance-page .approvals-light-new-request {
+    padding: 9px 16px !important;
+    font-size: 12px;
+  }
+
+  .manager-scope.light .approvals-attendance-page .approvals-light-kpis {
+    gap: 14px;
+  }
+
+  .manager-scope.light .approvals-attendance-page .approvals-light-kpi {
+    padding: 18px !important;
+  }
+
+  .manager-scope.light .approvals-attendance-page .approvals-light-filter {
+    padding: 12px !important;
+  }
+
+  .manager-scope.light .approvals-attendance-page .approvals-light-filter > div {
+    min-width: 0;
+    flex-basis: 100%;
+  }
+
+  .manager-scope.light .approvals-attendance-page .approvals-light-department {
+    max-width: 100%;
+  }
+
+  .manager-scope.light .approvals-attendance-page .approvals-light-status-filter {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border-radius: 16px !important;
+  }
+}
+
+/* Barra de filtros do relatório: cápsulas brancas no tema claro. */
+.manager-scope.light .approvals-page .approval-filter-bar input,
+.manager-scope.light .approvals-page .approval-filter-bar select {
+  min-height: 36px;
+  background: #ffffff !important;
+  color: #172033 !important;
+  border: 1px solid #d7deea !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, .06) !important;
+  color-scheme: light !important;
+}
+
+.manager-scope.light .approvals-page .approval-filter-bar input::placeholder {
+  color: #8792a5 !important;
+}
+
+/* Relatório de presenças — visual claro baseado na imagem de referência. */
+.manager-scope.light .attendance-report {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  padding: 0;
+  color: #17213a;
+  background: #f6f8fb;
+}
+
+.manager-scope.light .attendance-report > :not(.attendance-report-glow) {
+  margin-top: 0 !important;
+}
+
+.manager-scope.light .attendance-report-glow {
+  background: radial-gradient(circle, rgba(245, 146, 66, .035), transparent 72%) !important;
+  filter: blur(90px);
+}
+
+.manager-scope.light .attendance-report-hero {
+  display: flex;
+  align-items: center;
+  min-height: 0;
+  padding: 24px !important;
+  border: 1px solid #e5eaf1 !important;
+  border-radius: 24px !important;
+  background: linear-gradient(110deg, #fffefa 0%, #fff7ed 58%, #fdecec 100%) !important;
+  box-shadow: 0 8px 24px rgba(30, 50, 80, .045) !important;
+}
+
+.manager-scope.light .attendance-report-hero-glow {
+  background: radial-gradient(circle at 70% 50%, rgba(245, 146, 66, .10), rgba(159, 36, 60, .035) 48%, transparent 76%) !important;
+  filter: blur(64px) !important;
+}
+
+.manager-scope.light .attendance-report-hero-content {
+  width: 100%;
+  gap: 32px;
+}
+
+.manager-scope.light .attendance-report-eyebrow {
+  padding: 4px 12px;
+  color: #526b8a !important;
+  border-color: #e1e7ef !important;
+  background: rgba(255, 255, 255, .65) !important;
+  font-size: 10px;
+}
+
+.manager-scope.light .attendance-report-title {
+  color: #17213a !important;
+  font-size: 30px;
+  line-height: 1.08;
+}
+
+.manager-scope.light .attendance-report-title > span {
+  background: linear-gradient(90deg, #9f243c 0%, #be3440 48%, #f59242 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.manager-scope.light .attendance-report-hero-content > div:first-child {
+  max-width: 36rem;
+}
+
+.manager-scope.light .attendance-report-hero-content p {
+  max-width: 760px;
+  color: #526b8a !important;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.manager-scope.light .attendance-report-export {
+  min-height: 0;
+  padding: 10px 20px !important;
+  border-radius: 9999px !important;
+  background: linear-gradient(100deg, #8f1735 0%, #b3223e 54%, #f59a3d 100%) !important;
+  color: #ffffff !important;
+  font-size: 12px;
+  box-shadow: 0 5px 14px rgba(143, 23, 53, .16) !important;
+}
+
+.manager-scope.light .attendance-report-export:hover {
+  filter: brightness(1.04);
+  box-shadow: 0 7px 18px rgba(143, 23, 53, .20) !important;
+}
+
+.manager-scope.light .attendance-report-kpis {
+  gap: 16px;
+}
+
+.manager-scope.light .attendance-report-kpi {
+  min-height: 0;
+  padding: 20px !important;
+  border: 1px solid #e5eaf1 !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(30, 50, 80, .05) !important;
+}
+
+.manager-scope.light .attendance-report-kpi:hover {
+  border-color: #d6dfeb !important;
+  box-shadow: 0 7px 22px rgba(30, 50, 80, .075) !important;
+}
+
+.manager-scope.light .attendance-report-kpi-label {
+  color: #526b8a !important;
+  font-size: 11px;
+}
+
+.manager-scope.light .attendance-report-kpi-value {
+  color: #17213a !important;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.manager-scope.light .attendance-report-kpi-sub {
+  color: #7185a1 !important;
+  font-size: 11px;
+}
+
+.manager-scope.light .attendance-report-kpi:nth-child(1) .attendance-report-kpi-dot {
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, .08), 0 2px 9px rgba(34, 197, 94, .18) !important;
+}
+
+.manager-scope.light .attendance-report-kpi:nth-child(2) .attendance-report-kpi-dot {
+  box-shadow: 0 0 0 5px rgba(245, 146, 66, .09), 0 2px 9px rgba(245, 146, 66, .18) !important;
+}
+
+.manager-scope.light .attendance-report-kpi:nth-child(3) .attendance-report-kpi-dot {
+  box-shadow: 0 0 0 5px rgba(249, 222, 151, .18), 0 2px 9px rgba(222, 174, 40, .16) !important;
+}
+
+.manager-scope.light .attendance-report-kpi:nth-child(4) .attendance-report-kpi-dot {
+  box-shadow: 0 0 0 5px rgba(159, 36, 60, .07), 0 2px 9px rgba(159, 36, 60, .16) !important;
+}
+
+.manager-scope.light .attendance-report-filters {
+  min-height: 0;
+  padding: 16px !important;
+  border: 1px solid #e4e9f0 !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(30, 50, 80, .035) !important;
+}
+
+.manager-scope.light .attendance-report-filters > div {
+  gap: 12px;
+}
+
+.manager-scope.light .attendance-report-filters input,
+.manager-scope.light .attendance-report-filters select {
+  min-height: 0;
+  color: #17213a !important;
+  border: 1px solid #dce4ef !important;
+  border-radius: 9999px !important;
+  font-size: 12px;
+  color-scheme: light !important;
+}
+
+.manager-scope.light .attendance-report-filters input {
+  padding: 8px 12px 8px 36px !important;
+  background: #f8fafc !important;
+  box-shadow: none !important;
+}
+
+.manager-scope.light .attendance-report-filters input::placeholder {
+  color: #8295b0 !important;
+}
+
+.manager-scope.light .attendance-report-filters select {
+  padding: 8px 16px !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(30, 50, 80, .045) !important;
+}
+
+.manager-scope.light .attendance-report-table {
+  border: 1px solid #e5eaf1 !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(30, 50, 80, .04) !important;
+}
+
+.manager-scope.light .attendance-report-table thead tr {
+  color: #526b8a !important;
+  border-color: #e5eaf1 !important;
+  background: #f4f7fb !important;
+}
+
+.manager-scope.light .attendance-report-table th {
+  padding: 14px !important;
+  color: #526b8a !important;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.manager-scope.light .attendance-report-table td {
+  padding: 14px !important;
+  color: #526b8a !important;
+  border-color: #edf1f6 !important;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.manager-scope.light .attendance-report-table tbody tr {
+  color: #526b8a !important;
+  background: #ffffff;
+}
+
+.manager-scope.light .attendance-report-table tbody tr:hover {
+  background: #f8fafc !important;
+}
+
+.manager-scope.light .attendance-report-table .text-white {
+  color: #17213a !important;
+}
+
+.manager-scope.light .attendance-report-table .text-slate-300,
+.manager-scope.light .attendance-report-table .text-slate-400,
+.manager-scope.light .attendance-report-table .text-slate-500,
+.manager-scope.light .attendance-report-table .text-slate-600 {
+  color: #7185a1 !important;
+}
+
+.manager-scope.light .attendance-report-table td:nth-child(2) > div > div > div {
+  width: 100%;
+  height: 100%;
+  background: #17213a !important;
+  color: #ffffff !important;
+}
+
+.manager-scope.light .attendance-report-table td:nth-child(2) span:first-child {
+  color: #17213a !important;
+  font-size: 12px;
+}
+
+.manager-scope.light .attendance-report-table td:nth-child(2) span:nth-child(2) {
+  color: #7185a1 !important;
+  font-size: 10px;
+}
+
+.manager-scope.light .attendance-report-table td:nth-child(6) > span {
+  font-size: 10px;
+}
+
+@media (min-width: 640px) {
+  .manager-scope.light .attendance-report-hero {
+    padding: 32px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .manager-scope.light .attendance-report {
+    gap: 20px;
+  }
+
+  .manager-scope.light .attendance-report-hero {
+    min-height: 0;
+    padding: 24px !important;
+  }
+
+  .manager-scope.light .attendance-report-title {
+    font-size: clamp(24px, 7vw, 30px);
+  }
+
+  .manager-scope.light .attendance-report-hero-content p {
+    font-size: 13px;
+  }
+
+  .manager-scope.light .attendance-report-export {
+    min-height: 0;
+    padding: 9px 16px !important;
+    font-size: 12px;
+  }
+
+  .manager-scope.light .attendance-report-kpis {
+    gap: 14px;
+  }
+
+  .manager-scope.light .attendance-report-kpi {
+    min-height: 0;
+    padding: 18px !important;
+  }
+
+  .manager-scope.light .attendance-report-kpi-value {
+    font-size: 28px;
+  }
+
+  .manager-scope.light .attendance-report-kpi-sub {
+    font-size: 11px;
+  }
+
+  .manager-scope.light .attendance-report-filters {
+    min-height: 0;
+    padding: 12px !important;
+  }
+
+  .manager-scope.light .attendance-report-filters > div {
+    min-width: 0;
+    flex-basis: 100%;
+  }
+
+  .manager-scope.light .attendance-report-filters > div > div,
+  .manager-scope.light .attendance-report-filters input,
+  .manager-scope.light .attendance-report-filters select {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .manager-scope.light .attendance-report-table th,
+  .manager-scope.light .attendance-report-table td {
+    padding: 12px !important;
+  }
+}
+
+.manager-scope.light .approvals-page .bg-emerald-500\/10 {
+  background-color: #eaf6e8 !important;
+}
+
+.manager-scope.light .approvals-page .text-emerald-400 {
+  color: #39733c !important;
+}
+
+.manager-scope.light .approvals-page .text-rose-400,
+.manager-scope.light .approvals-page .text-rose-300 {
+  color: #9f243c !important;
+}
+
+.manager-scope.light .approvals-page .text-amber-300 {
+  color: #9f5b13 !important;
+}
+
+/* Calendário Orbit — moldura clara inspirada no layout de referência.
+   Os cartões das escalas não são selecionados aqui, preservando cores e textos. */
+.orbit-calendar.light {
+  background:
+    radial-gradient(circle at 0 0, rgba(249, 222, 151, .46), transparent 31%),
+    linear-gradient(135deg, #fbf7ed 0%, #fffdf8 48%, #fdf5ee 100%) !important;
+  color: #640c1e !important;
+}
+
+.orbit-calendar.light .orbit-rail {
+  background: rgba(255, 255, 255, .78) !important;
+  border-color: rgba(159, 36, 60, .13) !important;
+  box-shadow: 5px 0 20px rgba(100, 12, 30, .035);
+}
+
+.orbit-calendar.light .orbit-sidebar {
+  background: rgba(255, 255, 255, .74) !important;
+  border-color: rgba(159, 36, 60, .13) !important;
+}
+
+.orbit-calendar.light .orbit-canvas {
+  background: transparent !important;
+}
+
+.orbit-calendar.light .orbit-toolbar {
+  background: rgba(255, 253, 248, .92) !important;
+  border-color: rgba(159, 36, 60, .14) !important;
+  box-shadow: 0 5px 18px rgba(100, 12, 30, .045);
+}
+
+.orbit-calendar.light .orbit-content {
+  background: transparent;
+}
+
+.orbit-calendar.light .orbit-rail .text-white,
+.orbit-calendar.light .orbit-rail .text-slate-100,
+.orbit-calendar.light .orbit-rail .text-slate-200,
+.orbit-calendar.light .orbit-rail .text-slate-300,
+.orbit-calendar.light .orbit-sidebar .text-white,
+.orbit-calendar.light .orbit-sidebar .text-slate-100,
+.orbit-calendar.light .orbit-sidebar .text-slate-200,
+.orbit-calendar.light .orbit-sidebar .text-slate-300 {
+  color: #640c1e !important;
+}
+
+.orbit-calendar.light .orbit-rail .text-slate-400,
+.orbit-calendar.light .orbit-rail .text-slate-500,
+.orbit-calendar.light .orbit-sidebar .text-slate-400,
+.orbit-calendar.light .orbit-sidebar .text-slate-500,
+.orbit-calendar.light .orbit-sidebar .text-slate-600 {
+  color: #956b77 !important;
+}
+
+.orbit-calendar.light .orbit-rail [class*="bg-[#1A1C24]"],
+.orbit-calendar.light .orbit-sidebar [class*="bg-[#14151C]"],
+.orbit-calendar.light .orbit-sidebar [class*="bg-[#1A1C24]"] {
+  background-color: rgba(255, 255, 255, .72) !important;
+}
+
+.orbit-calendar.light .orbit-rail [class*="border-white/"],
+.orbit-calendar.light .orbit-sidebar [class*="border-white/"] {
+  border-color: rgba(159, 36, 60, .13) !important;
+}
+
+.orbit-calendar.light .orbit-week-header > div {
+  background: rgba(255, 255, 255, .72) !important;
+  border-color: rgba(159, 36, 60, .14) !important;
+  color: #640c1e !important;
+  box-shadow: 0 5px 14px rgba(100, 12, 30, .045);
+}
+
+.orbit-calendar.light .orbit-week-header > div[style*="linear-gradient"] {
+  background: linear-gradient(135deg, #640c1e, #9f243c) !important;
+  color: #f9de97 !important;
+  border-color: #9f243c !important;
+}
+
+.orbit-calendar.light .orbit-week-header > div[style*="linear-gradient"] p {
+  color: #f9de97 !important;
+}
+
+.orbit-calendar.light .orbit-timetable {
+  border-color: rgba(159, 36, 60, .13) !important;
+}
+
+.orbit-calendar.light .orbit-time-column {
+  background: rgba(255, 255, 255, .52) !important;
+  border-color: rgba(159, 36, 60, .10) !important;
+}
+
+.orbit-calendar.light .orbit-time-column > div:not(.absolute) {
+  border-color: rgba(159, 36, 60, .09) !important;
+}
+
+.orbit-calendar.light .orbit-time-column > div:not(.absolute):hover {
+  background: rgba(249, 222, 151, .15) !important;
+}
+
+.orbit-calendar.light .orbit-month-cell {
+  background: rgba(255, 255, 255, .68) !important;
+  border-color: rgba(159, 36, 60, .13) !important;
+  color: #640c1e !important;
+}
+
+.orbit-calendar.light .orbit-month-cell:hover {
+  background: rgba(249, 222, 151, .17) !important;
+}
+
+.orbit-calendar.light .orbit-day-panel {
+  background: rgba(255, 255, 255, .82) !important;
+  border-color: rgba(159, 36, 60, .14) !important;
+  box-shadow: 0 12px 30px rgba(100, 12, 30, .06);
+}
+/* Orbit — reforço do degradê e controles compactos no modo claro. */
+.orbit-calendar.light {
+  background:
+    radial-gradient(circle at 0 0, rgba(249, 222, 151, .82), transparent 34%),
+    radial-gradient(circle at 92% 0, rgba(159, 36, 60, .14), transparent 28%),
+    linear-gradient(110deg, #f5eeb8 0%, #f8e8d5 40%, #f4e6ed 72%, #eee8f7 100%) !important;
+}
+
+.orbit-calendar.light .orbit-toolbar > div:first-child {
+  background: linear-gradient(90deg, rgba(249, 222, 151, .50), rgba(255, 253, 248, .92) 44%, rgba(248, 239, 245, .88)) !important;
+}
+
+.orbit-calendar.light .orbit-toolbar > div:nth-child(2) {
+  background: rgba(255, 253, 248, .78) !important;
+}
+
+.orbit-calendar.light .orbit-content {
+  background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(249,222,151,.12)) !important;
+}
+/* Orbit — barra única de navegação, inspirada na composição da referência. */
+@media (min-width: 900px) {
+  .orbit-calendar.light .orbit-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background:
+      linear-gradient(100deg, rgba(249,222,151,.72) 0%, rgba(255,253,248,.88) 35%, rgba(244,237,248,.88) 100%) !important;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child,
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) {
+    display: contents;
+  }
+
+  /* Data, botão Hoje e navegação */
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:first-child {
+    order: 1;
+    min-width: max-content;
+  }
+
+  /* Busca e filtros */
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(1) {
+    order: 2;
+    flex: 1 1 150px;
+    max-width: 260px;
+    min-width: 150px;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) {
+    order: 3;
+    flex: 0 1 auto;
+  }
+
+  /* Alternador de visualização e ações */
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:nth-child(2) {
+    order: 5;
+    margin-left: auto;
+    gap: 8px;
+  }
+
+  /* O status permanece acessível quando há rascunhos a publicar; quando a
+     escala já está publicada, ele não ocupa espaço na barra principal. */
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:last-child {
+    order: 4;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:last-child:not(:has(button)) {
+    display: none;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:nth-child(2) > button:first-of-type {
+    width: 34px;
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: center;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:nth-child(2) > button:first-of-type > span {
+    display: none;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:nth-child(2) > button:first-of-type::before {
+    content: '+';
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:nth-child(2) > button:last-child {
+    min-width: 82px;
+    border-radius: 999px;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(3) {
+    order: 8;
+    flex-basis: 100%;
+    margin: 2px -16px -8px;
+    padding: 7px 16px;
+  }
+}
+/* Orbit — filtros no topo e período em uma faixa inferior dedicada. */
+@media (min-width: 900px) {
+  .orbit-calendar.light .orbit-toolbar {
+    align-items: center;
+    row-gap: 8px;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(1) {
+    order: 1;
+    flex: 1 1 210px;
+    max-width: 300px;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) {
+    order: 2;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:nth-child(2) {
+    order: 3;
+    margin-left: auto;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:nth-child(2) > button:first-of-type {
+    display: none !important;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:first-child {
+    order: 6;
+    flex: 1 0 100%;
+    min-height: 42px;
+    padding-top: 7px;
+    border-top: 1px solid rgba(159, 36, 60, .12);
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:first-child h2 {
+    font-size: 23px;
+    letter-spacing: -.035em;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(3) {
+    order: 8;
+  }
+}
+/* Orbit — conjunto único de busca e filtros. */
+@media (min-width: 900px) {
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(1) {
+    position: relative;
+    z-index: 1;
+    margin-right: -10px;
+    max-width: 300px;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(1) input {
+    height: 38px;
+    border-radius: 14px 0 0 14px !important;
+    border-color: rgba(159, 36, 60, .16) !important;
+    border-right-color: transparent !important;
+    background: rgba(255, 255, 255, .92) !important;
+    box-shadow: 0 4px 12px rgba(100, 12, 30, .045) !important;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) {
+    height: 38px;
+    gap: 0;
+    padding: 3px 5px 3px 7px;
+    margin-left: 0;
+    border-radius: 0 14px 14px 0;
+    border-color: rgba(159, 36, 60, .16) !important;
+    background: rgba(255, 255, 255, .92) !important;
+    box-shadow: 0 4px 12px rgba(100, 12, 30, .045);
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) select {
+    height: 30px;
+    padding-left: 11px;
+    padding-right: 30px;
+    border: 0 !important;
+    border-radius: 9px;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) > span {
+    height: 20px;
+    background: rgba(159, 36, 60, .16) !important;
+  }
+
+.orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) > div:hover select,
+.orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) > div:focus-within select {
+    background: rgba(249, 222, 151, .24) !important;
+  }
+}
+
+/* Orbit — cabeçalho claro sem divisor e filtros mantidos em uma linha. */
+@media (min-width: 900px) {
+  .orbit-calendar.light .orbit-toolbar > div:first-child {
+    flex-wrap: nowrap;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(1) {
+    flex: 1 1 210px;
+    min-width: 180px;
+    max-width: 300px;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) {
+    flex: 0 0 auto;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:first-child {
+    border-top: 0;
+  }
+
+  /* Alinha período e navegação à esquerda, com visualização e ações à direita. */
+  .orbit-calendar.light .orbit-toolbar {
+    background: #fbf1dc !important;
+    border-bottom-color: transparent !important;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child,
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2),
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(3) {
+    background: transparent !important;
+    border-top: 0 !important;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:first-child {
+    order: 5;
+    flex: 1 1 50%;
+    min-height: 42px;
+    padding-top: 0;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:nth-child(2) > div:nth-child(2) {
+    order: 6;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+
+  /* Busca e seletores Orbit: mesmo arranjo do tema escuro, com paleta clara. */
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(1) {
+    order: 1;
+    flex: 1 1 300px;
+    min-width: 220px;
+    max-width: 430px;
+    margin-right: 0;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(1) input {
+    height: 36px;
+    border-radius: 12px !important;
+    border: 1px solid #e3d6c3 !important;
+    background: #fffdf9 !important;
+    box-shadow: none !important;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) {
+    order: 2;
+    flex: 0 1 auto;
+    height: 40px;
+    gap: 8px;
+    padding: 4px 6px;
+    border: 1px solid #e3d6c3 !important;
+    border-radius: 14px;
+    background: #f8edda !important;
+    box-shadow: none !important;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) > span {
+    display: block;
+    height: 20px;
+    background: #e3d6c3 !important;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) select {
+    height: 32px;
+    min-width: 0;
+    border: 1px solid transparent !important;
+    border-radius: 10px;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) select:hover,
+  .orbit-calendar.light .orbit-toolbar > div:first-child > div:nth-child(2) select:focus {
+    border-color: rgba(159, 36, 60, .18) !important;
+    background: rgba(255, 255, 255, .72) !important;
+  }
+
+}
+
+/* Lembretes e Tarefas — visual claro isolado do restante das abas e do modo escuro. */
+.manager-scope.light .reminders-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  color: #18375e;
+  background: #f8fafc;
+}
+
+.manager-scope.light .reminders-page > * {
+  margin-top: 0 !important;
+}
+
+.manager-scope.light .reminders-background-glow,
+.manager-scope.light .reminders-hero-flare {
+  display: none !important;
+}
+
+.manager-scope.light .reminders-page .reminders-hero {
+  min-height: 220px;
+  padding: 36px 32px !important;
+  border: 1px solid #e5edf6 !important;
+  border-radius: 20px !important;
+  background: linear-gradient(110deg, #ffffff 0%, #fff9f3 50%, #fcedef 100%) !important;
+  box-shadow: 0 5px 24px rgba(70, 110, 150, .06) !important;
+}
+
+.manager-scope.light .reminders-hero > .relative > div:first-child {
+  max-width: 640px;
+}
+
+.manager-scope.light .reminders-page .reminders-hero > .relative > div:first-child > div:first-child {
+  color: #42688f !important;
+  border-color: #e5edf6 !important;
+  background: rgba(255, 255, 255, .65) !important;
+}
+
+.manager-scope.light .reminders-page .reminders-title {
+  color: #18375e !important;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.03em;
+}
+
+.manager-scope.light .reminders-title-highlight {
+  background: linear-gradient(90deg, #9f243c 0%, #c83d48 54%, #f59242 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.manager-scope.light .reminders-page .reminders-description {
+  max-width: 640px;
+  color: #7396be !important;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.manager-scope.light .reminders-page .reminders-primary-button {
+  min-height: 36px;
+  padding: 0 18px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1;
+  font-size: 11px;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #9f243c 0%, #c83d48 54%, #f59242 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 5px 15px rgba(159, 36, 60, .12) !important;
+}
+
+.manager-scope.light .reminders-page .reminders-primary-button:hover {
+  filter: brightness(1.035);
+  box-shadow: 0 7px 18px rgba(159, 36, 60, .16) !important;
+}
+
+.manager-scope.light .reminders-page .reminders-filter-bar {
+  min-height: 50px;
+  padding: 8px 12px !important;
+  border: 1px solid #e2ebf5 !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  box-shadow: 0 3px 12px rgba(60, 100, 140, .035) !important;
+}
+
+.manager-scope.light .reminders-page .reminders-filter-bar > .flex:last-of-type {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.manager-scope.light .reminders-page .reminders-search-icon {
+  color: #527ba5 !important;
+}
+
+.manager-scope.light .reminders-page .reminders-filter-bar .reminders-search-input {
+  min-height: 30px;
+  height: 30px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border: 1px solid #dce7f2 !important;
+  border-radius: 14px !important;
+  background: #ffffff !important;
+  color: #18375e !important;
+  box-shadow: 0 2px 10px rgba(60, 100, 140, .03) !important;
+}
+
+.manager-scope.light .reminders-page .reminders-search-input::placeholder {
+  color: #8aa7c5 !important;
+}
+
+.manager-scope.light .reminders-page .reminders-search-input:focus {
+  border-color: #aac3dc !important;
+  box-shadow: 0 0 0 3px rgba(82, 123, 165, .08) !important;
+}
+
+.manager-scope.light .reminders-page .reminders-type-filter {
+  gap: 6px;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+}
+
+.manager-scope.light .reminders-page .reminders-type-filter button {
+  min-height: 28px;
+  padding: 0 14px !important;
+  font-size: 11px;
+  border: 1px solid #e3ebf4 !important;
+  border-radius: 999px !important;
+  background: #f7fafd !important;
+  color: #587ba2 !important;
+  box-shadow: none !important;
+}
+
+.manager-scope.light .reminders-page .reminders-type-filter button[data-active="true"] {
+  border-color: #ffd1b5 !important;
+  background: #fff0e6 !important;
+  color: #c55428 !important;
+}
+
+.manager-scope.light .reminders-page .reminders-type-filter button:hover {
+  border-color: #ffd1b5 !important;
+  background: #fff7f1 !important;
+  color: #c55428 !important;
+}
+
+.manager-scope.light .reminders-page .reminders-filter-bar .reminders-primary-button {
+  min-height: 30px;
+  padding: 0 14px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 10px;
+}
+
+.manager-scope.light .reminders-empty-state {
+  border-color: #dce7f2 !important;
+  border-radius: 18px !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(60, 100, 140, .04) !important;
+}
+
+.manager-scope.light .reminders-empty-state h3 {
+  color: #18375e !important;
+}
+
+.manager-scope.light .reminders-empty-state p {
+  color: #7396be !important;
+}
+
+.manager-scope.light .reminders-empty-state > div {
+  border: 1px solid #e2ebf5;
+  background: #f4f8fc !important;
+}
+
+.manager-scope.light .reminders-grid {
+  gap: 20px;
+}
+
+.manager-scope.light .reminders-task-card {
+  min-height: 190px;
+  padding: 20px 22px !important;
+  border: 1px solid #e2ebf5 !important;
+  border-left-width: 3px !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(60, 100, 140, .05) !important;
+  opacity: 1;
+}
+
+.manager-scope.light .reminders-task-card:hover {
+  border-color: #d4e1ee !important;
+  box-shadow: 0 7px 22px rgba(60, 100, 140, .075) !important;
+}
+
+.manager-scope.light .reminders-task-card[data-reminder-type="reuniao"] {
+  border-left-color: #a855f7 !important;
+}
+
+.manager-scope.light .reminders-task-card[data-reminder-type="atividade"] {
+  border-left-color: #f59242 !important;
+}
+
+.manager-scope.light .reminders-task-card[data-reminder-type="plantao"] {
+  border-left-color: #16a875 !important;
+}
+
+.manager-scope.light .reminders-task-card[data-reminder-type="treinamento"] {
+  border-left-color: #168fe0 !important;
+}
+
+.manager-scope.light .reminder-type-badge {
+  border-radius: 999px !important;
+  font-family: inherit;
+  letter-spacing: .015em;
+}
+
+.manager-scope.light .reminder-type-badge[data-reminder-type="reuniao"] {
+  border: 1px solid #dcc4ff !important;
+  background: #f1e8ff !important;
+  color: #6835d5 !important;
+}
+
+.manager-scope.light .reminder-type-badge[data-reminder-type="reuniao"] > span {
+  background: #a855f7 !important;
+}
+
+.manager-scope.light .reminder-type-badge[data-reminder-type="atividade"] {
+  border: 1px solid #ffd39f !important;
+  background: #fff0dd !important;
+  color: #d97a13 !important;
+}
+
+.manager-scope.light .reminder-type-badge[data-reminder-type="atividade"] > span {
+  background: #f59242 !important;
+}
+
+.manager-scope.light .reminder-type-badge[data-reminder-type="plantao"] {
+  border: 1px solid #b9e9d3 !important;
+  background: #e3f8ef !important;
+  color: #149666 !important;
+}
+
+.manager-scope.light .reminder-type-badge[data-reminder-type="plantao"] > span {
+  background: #16a875 !important;
+}
+
+.manager-scope.light .reminder-type-badge[data-reminder-type="treinamento"] {
+  border: 1px solid #bbddf8 !important;
+  background: #e5f3ff !important;
+  color: #1685d5 !important;
+}
+
+.manager-scope.light .reminder-type-badge[data-reminder-type="treinamento"] > span {
+  background: #168fe0 !important;
+}
+
+.manager-scope.light .reminder-tag,
+.manager-scope.light .reminder-meta-pill,
+.manager-scope.light .reminder-assignee-pill {
+  border: 1px solid #e2eaf3 !important;
+  background: #f4f8fc !important;
+  color: #6284aa !important;
+}
+
+.manager-scope.light .reminder-tag,
+.manager-scope.light .reminder-meta-pill {
+  border-radius: 999px !important;
+}
+
+.manager-scope.light .reminder-meta-pill {
+  padding: 6px 11px !important;
+}
+
+.manager-scope.light .reminder-meta-icon {
+  color: #527ba5 !important;
+}
+
+.manager-scope.light .reminders-task-title {
+  color: #173b63 !important;
+  font-weight: 700;
+}
+
+.manager-scope.light .reminders-task-card:hover .reminders-task-title {
+  color: #173b63 !important;
+}
+
+.manager-scope.light .reminders-task-title.line-through {
+  color: #8aa0b8 !important;
+}
+
+.manager-scope.light .reminders-task-description {
+  color: #7294ba !important;
+}
+
+.manager-scope.light .reminders-task-card .border-t {
+  border-color: #e7eef5 !important;
+}
+
+.manager-scope.light .reminders-complete-button {
+  border: 1px solid #e0e9f2 !important;
+  border-radius: 10px !important;
+  background: #f8fafd !important;
+  color: #597c9f !important;
+}
+
+.manager-scope.light .reminders-complete-button:hover {
+  border-color: #b9e9d3 !important;
+  background: #e3f8ef !important;
+  color: #149666 !important;
+}
+
+.manager-scope.light .reminders-complete-button[data-completed="true"] {
+  border-color: #b9e9d3 !important;
+  background: #e3f8ef !important;
+  color: #149666 !important;
+}
+
+.manager-scope.light .reminders-delete-button {
+  border: 1px solid #e0e9f2 !important;
+  border-radius: 10px !important;
+  background: #f8fafd !important;
+  color: #597c9f !important;
+}
+
+.manager-scope.light .reminders-delete-button:hover {
+  border-color: #f3cbd0 !important;
+  background: #fff0f1 !important;
+  color: #b54452 !important;
+}
+
+.manager-scope.light .reminders-page .reminder-call-button {
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: #35b879 !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(53, 184, 121, .14) !important;
+}
+
+.manager-scope.light .reminders-page .reminder-call-button:hover {
+  filter: brightness(1.04);
+}
+
+.manager-scope.light .reminders-modal-backdrop {
+  background: rgba(24, 55, 94, .28) !important;
+  backdrop-filter: blur(5px);
+}
+
+.manager-scope.light .reminders-modal {
+  border-color: #e2ebf5 !important;
+  background: #ffffff !important;
+  box-shadow: 0 18px 44px rgba(44, 73, 108, .18) !important;
+}
+
+.manager-scope.light .reminders-modal h3 {
+  color: #18375e !important;
+}
+
+.manager-scope.light .reminders-modal label {
+  color: #587ba2 !important;
+}
+
+.manager-scope.light .reminders-modal input,
+.manager-scope.light .reminders-modal select,
+.manager-scope.light .reminders-modal textarea {
+  border-color: #dce7f2 !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  color: #18375e !important;
+  color-scheme: light !important;
+}
+
+.manager-scope.light .reminders-modal input::placeholder,
+.manager-scope.light .reminders-modal textarea::placeholder {
+  color: #8aa7c5 !important;
+}
+
+.manager-scope.light .reminders-modal .border-b,
+.manager-scope.light .reminders-modal .border-t {
+  border-color: #e7eef5 !important;
+}
+
+.manager-scope.light .reminders-modal button[type="button"] {
+  border: 1px solid #d8e4f0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #42688f;
+}
+
+.manager-scope.light .reminders-modal button[type="submit"] {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #9f243c, #f59242) !important;
+  color: #ffffff !important;
+  box-shadow: 0 5px 15px rgba(159, 36, 60, .12) !important;
+}
+
+.manager-scope.light .reminders-modal-close {
+  border: 1px solid #e0e9f2;
+  background: #f8fafd;
+  color: #597c9f !important;
+}
+
+.manager-scope.light .reminders-modal-close:hover {
+  background: #eef5fb !important;
+  color: #42688f !important;
+}
+
+@media (max-width: 767px) {
+  .manager-scope.light .reminders-page {
+    gap: 16px;
+  }
+
+  .manager-scope.light .reminders-page .reminders-hero {
+    min-height: 0;
+    padding: 24px !important;
+  }
+
+  .manager-scope.light .reminders-page .reminders-title {
+    font-size: clamp(30px, 8vw, 38px);
+  }
+
+  .manager-scope.light .reminders-page .reminders-description {
+    font-size: 13px;
+  }
+
+  .manager-scope.light .reminders-page .reminders-filter-bar {
+    align-items: stretch;
+    padding: 12px !important;
+  }
+
+  .manager-scope.light .reminders-type-filter {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .manager-scope.light .reminders-type-filter button {
+    padding: 0 12px !important;
+  }
+
+  .manager-scope.light .reminders-grid {
+    gap: 14px;
+  }
+
+  .manager-scope.light .reminders-task-card {
+    min-height: 0;
+    padding: 18px !important;
+  }
+}
